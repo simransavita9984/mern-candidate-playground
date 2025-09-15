@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import API_BASE_URL from '../apiConfig';
 const Search = () => {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState(null)
@@ -14,7 +14,7 @@ const Search = () => {
     setError(null)
 
     try {
-      const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`)
+      const response = await fetch(`${API_BASE_URL}/api/search?q=${encodeURIComponent(query)}`)
       if (!response.ok) {
         throw new Error('Search failed')
       }

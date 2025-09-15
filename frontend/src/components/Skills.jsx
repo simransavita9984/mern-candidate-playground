@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import API_BASE_URL from '../apiConfig';
 
 const Skills = () => {
   const [skills, setSkills] = useState([])
@@ -8,7 +9,7 @@ const Skills = () => {
   useEffect(() => {
     const fetchTopSkills = async () => {
       try {
-        const response = await fetch('/api/skills/top')
+        const response = await fetch(`${API_BASE_URL}/api/skills/top`)
         if (!response.ok) {
           throw new Error('Failed to fetch skills')
         }

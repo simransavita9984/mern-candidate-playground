@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin, FaGlobe, FaGraduationCap, FaBriefcase, FaCode } from 'react-icons/fa';
-
+import API_BASE_URL from '../apiConfig';
 const Profile = () => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -9,7 +9,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch('/api/profile');
+        const response = await fetch(`${API_BASE_URL}/api/profile`);
         if (!response.ok) {
           throw new Error('Failed to fetch profile');
         }

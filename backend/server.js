@@ -21,6 +21,8 @@ app.use('/api/projects', require('./routes/projects'));
 app.use('/api/skills', require('./routes/skills'));
 app.use('/api/search', require('./routes/search'));
 
+
+
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/me-api', {
   useNewUrlParser: true,

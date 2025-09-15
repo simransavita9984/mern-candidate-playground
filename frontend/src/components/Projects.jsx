@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import API_BASE_URL from '../apiConfig';
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,8 +10,8 @@ const Projects = () => {
     const fetchProjects = async () => {
       try {
         const url = skillFilter 
-          ? `/api/projects?skill=${encodeURIComponent(skillFilter)}`
-          : '/api/projects';
+          ? `${API_BASE_URL}/api/projects?skill=${encodeURIComponent(skillFilter)}`
+          : `${API_BASE_URL}/api/projects`;
         
         const response = await fetch(url);
         if (!response.ok) {
